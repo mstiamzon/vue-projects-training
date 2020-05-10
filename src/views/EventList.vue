@@ -1,12 +1,13 @@
 <template>
   <div>
-    <h1>Events Listing</h1>
-    <EventCard v-for="event in events" :key="event.id" :event="event"/>
+    <h1>Events for user {{user.user.name}}</h1>
+    <EventCard v-for="event in event.events" :key="event.id" :event="event"/>
     <template v-if="page != 1">
    <router-link :to="{name: 'event-list',query:{page:page-1}}" rel="prev">
     Prev Page </router-link>
-    </template> |
-   <router-link :to="{name: 'event-list',query:{page:page+1}}" rel="prev">
+    <template v-if="hasNextPage"> | </template>
+    </template> 
+   <router-link v-if="hasNextPage" :to="{name: 'event-list',query:{page:page+1}}" rel="prev">
     Next Page </router-link>
 
   </div>
@@ -27,6 +28,9 @@ export default {
   //   }
   // },
   created() {
+    this.perPage = 3 // Setting perPage here and not in data means it won't be reactive.
+    // We don't need it to be reactive, and this way our component has access to it.
+
      //axios
       //// .get('http://localhost:3000/events')
     //  EventService.getDataEvents()
@@ -38,9 +42,9 @@ export default {
     //     console.log('There was an error' + error.response)
     //   })
 
-
-    this.$store.dispatch('fetchEvents', {
-      perPage :3,
+  // this.$store.dispatch('fetchEvents', {
+    this.$store.dispatch('event/fetchEvents', { //event namespaced is true in event.js
+      perPage :this.perPage,
       page : this.page
     })
   },
@@ -48,7 +52,10 @@ export default {
     page(){
        return parseInt(this.$route.query.page) || 1  //if no url query parameters,assume first page
     },
-  ...mapState(['events'])
+    hasNextPage(){
+      return this.event.eventsTotal > this.page * this.perPage
+    },
+   ...mapState(['event','eventsTotal','user'])
 }
 }
 </script>

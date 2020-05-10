@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 import Datepicker from 'vuejs-datepicker'
 export default {
   components: {
@@ -72,7 +72,7 @@ export default {
       times,
       categories: this.$store.state.categories,
       event: this.createFreshEventObject(),
-      user: this.$store.state.user
+      user: this.$store.state.user.user
     }
   },
 
@@ -101,14 +101,16 @@ export default {
 
   computed: {
     //mapgetters function
+    
+    ...mapGetters('event', ['getEventsId']),
     catLength() {
       return this.$store.getters.catLength
-    },
+    }
     //  getEvent()
     //  {
     //     return this.$store.getters.getEventsId
     //  },
-    ...mapGetters(['getEventsId'])
+   // ...mapGetters(['event/getEventsId'])
     // ...mapState(['user','categories'])
   },
   methods: {
@@ -117,7 +119,7 @@ export default {
       this.$store.dispatch('updateCount', this.incrementBy)
     },
     createFreshEventObject() {
-      const user = this.$store.state.user
+      const user = this.$store.state.user.user
       const id = Math.floor(Math.random() * 10000000)
 
       return {
@@ -134,8 +136,8 @@ export default {
       }
     },
     createEvent() {
-      this.$store
-        .dispatch('createEvent', this.event)
+      this.$store.dispatch('event/createEvent', this.event)  //namespaced is true in event.js
+        // .dispatch('createEvent', this.event)
         .then(() => {
           this.router.push({
             name: 'event-show',

@@ -23,7 +23,7 @@
 </template>
 <script>
 // import EventService from '@/services/EventService.js'
-import {mapState} from 'vuex'
+import { mapState , mapActions} from 'vuex'
 export default {
   props: ['id'],
   // data() {
@@ -39,12 +39,18 @@ export default {
     //   .catch(error => {
     //     console.log('There waas an error', error.response)
     //   })
-      this.$store.dispatch('fetchEventMutation',this.id)
+   
+   this.fetchEventMutation(this.id)
+  //  this.$store.dispatch('fetchEventMutation', this.id)
   },
-  computed:{
-    ...mapState(['event'])
+  computed: mapState({
+        event: state => state.event.event
+     }),
 
-  }
+  methods: 
+     mapActions('event', ['fetchEventMutation'])
+                     //namespaced - //action to nmap
+  
 }
 </script>
 <style scoped>

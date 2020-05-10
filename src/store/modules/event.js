@@ -1,31 +1,22 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
 import EventService from '@/services/EventService.js'
-Vue.use(Vuex)
 
-export default new Vuex.Store({
-  state: {
-    user: { id: 1, name: 'laine' },
-    categories: ['sustainablity', 'nature', 'housing'],
-    todos: [
-      { id: 1, text: '...', done: true },
-      { id: 2, text: '...', done: false },
-      { id: 3, text: '...', done: true },
-      { id: 4, text: '...', done: false }
-    ],
+export const namespaced = true
+export const state= {
+    
+    // categories: ['sustainablity', 'nature', 'housing'],
+    
     // events:[
     //   {id:25,title:'SAmple',organizer:'...'},
     //   {id:23,title:'SAmpleTo',organizer:'...'},
     //   {id:25,title:'SAmplelang',organizer:'...'},
     //   {id:25,title:'SAmpleOO',organizer:'...'},
     // ],
-    count: 0,
-    usercount: null,
+    
     events: [],
-    eventsTotal: [],
+    eventsTotal: 0,
     event: {}
-  },
-  mutations: {
+  }
+ export const mutations= {
     INCREMENT_COUNT(state, value) {
       state.count += value
     },
@@ -41,8 +32,8 @@ export default new Vuex.Store({
     SET_EVENT_MUTATION(state, event) {
       state.event = event
     }
-  },
-  actions: {
+  }
+  export const actions= {
     updateCount({ state, commit }, value) {
       if (state.user) {
         commit('INCREMENT_COUNT', value)
@@ -56,6 +47,7 @@ export default new Vuex.Store({
     fetchEvents({ commit }, { perPage, page }) {
       EventService.getDataEvents(perPage, page)
         .then(response => {
+            commit('SET_EVENTS_TOTAL', parseInt(response.headers['x-total-count']))
           commit('SET_EVENTS', response.data)
           console.log('Total events are ' + response.headers['x-total-count'])
         })
@@ -77,8 +69,9 @@ export default new Vuex.Store({
           })
       }
     }
-  },
-  getters: {
+  }
+  
+  export const getters= {
     catLength: state => {
       return state.categories.length
     },
@@ -92,4 +85,3 @@ export default new Vuex.Store({
       return state.events.find(event => event.id === id)
     }
   }
-})
