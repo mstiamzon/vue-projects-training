@@ -44,6 +44,60 @@
       "date": "2019-02-02T23:27:00.000Z",
       "time": "1:00",
       "attendees": []
+    },
+    {
+      "id": 6669796,
+      "user": {
+        "id": 1,
+        "name": "laine"
+      },
+      "category": "sustainablity",
+      "organizer": {
+        "id": 1,
+        "name": "laine"
+      },
+      "title": "sample lang",
+      "description": "hehehhe",
+      "location": "manila",
+      "date": "2020-06-20T10:30:00.000Z",
+      "time": "22:00",
+      "attendees": []
+    },
+    {
+      "id": 686471,
+      "user": {
+        "id": 1,
+        "name": "laine"
+      },
+      "category": "nature",
+      "organizer": {
+        "id": 1,
+        "name": "laine"
+      },
+      "title": "wlaa lang",
+      "description": "sample descrip",
+      "location": "cavite",
+      "date": "",
+      "time": "13:00",
+      "attendees": []
+    },
+    {
+      "id": 6381203,
+      "user": {
+        "id": 1,
+        "name": "laine"
+      },
+      "category": "housing",
+      "organizer": {
+        "id": 1,
+        "name": "laine"
+      },
+      "title": "sample",
+      "description": "asple",
+      "location": "cavite",
+      "date": "2020-05-21T05:00:00.000Z",
+      "time": "8:00",
+      "attendees": []
     }
   ]
 }
