@@ -7,6 +7,7 @@ import store from './store/store'
 import BaseIcon from '@/components/BaseIcon'
 
 Vue.component('BaseIcon', BaseIcon)
+
 Vue.config.productionTip = false
 
 const requireComponent = require.context(

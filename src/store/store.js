@@ -2,24 +2,26 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import * as user from '@/store/modules/user.js'
 import * as event from '@/store/modules/event.js'
+import * as notification from '@/store/modules/notification.js'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  modules:{
+  modules: {
     user,
-    event
+    event,
+    notification
   },
-  state:{
-     categories: [
-       'sustainablity',
-        'nature',
-        'animal welfare',
-        'housing',
-        'education',
-        'food',
-        'community'
-      
-      ],
+  state: {
+    categories: [
+      'sustainablity',
+      'nature',
+      'animal welfare',
+      'housing',
+      'education',
+      'food',
+      'community'
+    ],
     count: 0,
     usercount: null,
     todos: [
@@ -29,5 +31,4 @@ export default new Vuex.Store({
       { id: 4, text: '...', done: false }
     ]
   }
-  
 })
