@@ -339,6 +339,24 @@
       "date": "2020-07-02T10:35:00.000Z",
       "time": "18:00",
       "attendees": []
+    },
+    {
+      "id": 4062136,
+      "user": {
+        "id": 1,
+        "name": "laine"
+      },
+      "category": "food",
+      "organizer": {
+        "id": 1,
+        "name": "laine"
+      },
+      "title": "",
+      "description": "",
+      "location": "zzzzzzzzzzzzzzz",
+      "date": "",
+      "time": "",
+      "attendees": []
     }
   ]
 }
