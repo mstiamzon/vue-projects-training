@@ -285,6 +285,42 @@
       "date": "",
       "time": "",
       "attendees": []
+    },
+    {
+      "id": 7721609,
+      "user": {
+        "id": 1,
+        "name": "laine"
+      },
+      "category": "community",
+      "organizer": {
+        "id": 1,
+        "name": "laine"
+      },
+      "title": "",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 2021197,
+      "user": {
+        "id": 1,
+        "name": "laine"
+      },
+      "category": "food",
+      "organizer": {
+        "id": 1,
+        "name": "laine"
+      },
+      "title": "laineeeee",
+      "description": "sadasdasdasdsad",
+      "location": "manila",
+      "date": "2020-05-01T05:34:00.000Z",
+      "time": "20:00",
+      "attendees": []
     }
   ]
 }
