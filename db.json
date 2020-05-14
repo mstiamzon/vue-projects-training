@@ -321,6 +321,24 @@
       "date": "2020-05-01T05:34:00.000Z",
       "time": "20:00",
       "attendees": []
+    },
+    {
+      "id": 299182,
+      "user": {
+        "id": 1,
+        "name": "laine"
+      },
+      "category": "housing",
+      "organizer": {
+        "id": 1,
+        "name": "laine"
+      },
+      "title": "ganda",
+      "description": "talaga",
+      "location": "CAvite",
+      "date": "2020-07-02T10:35:00.000Z",
+      "time": "18:00",
+      "attendees": []
     }
   ]
 }
