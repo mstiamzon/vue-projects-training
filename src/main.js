@@ -6,7 +6,9 @@ import router from './router'
 import store from './store/store'
 import 'nprogress/nprogress.css'
 import Vuelidate from 'vuelidate'
+import DateFilter from './filters/datefilter'
 
+Vue.filter('date', DateFilter)
 Vue.use(Vuelidate)
 
 Vue.config.productionTip = false
